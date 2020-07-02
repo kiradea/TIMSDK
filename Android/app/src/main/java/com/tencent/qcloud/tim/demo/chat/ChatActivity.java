@@ -1,14 +1,17 @@
 package com.tencent.qcloud.tim.demo.chat;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.tencent.qcloud.tim.demo.BaseActivity;
 import com.tencent.qcloud.tim.demo.R;
 import com.tencent.qcloud.tim.demo.SplashActivity;
 import com.tencent.qcloud.tim.demo.utils.Constants;
 import com.tencent.qcloud.tim.demo.utils.DemoLog;
+import com.tencent.qcloud.tim.demo.utils.Utils;
 import com.tencent.qcloud.tim.uikit.modules.chat.base.ChatInfo;
 
 public class ChatActivity extends BaseActivity {
@@ -40,7 +43,11 @@ public class ChatActivity extends BaseActivity {
     }
 
     private void chat(Intent intent) {
+        // 离线推送测试代码
+        Utils.printBundle(intent);
+        // 离线推送测试代码结束
         Bundle bundle = intent.getExtras();
+        DemoLog.i(TAG, "bundle: " + bundle + " intent: " + intent);
         if (bundle == null) {
             startSplashActivity();
         } else {
